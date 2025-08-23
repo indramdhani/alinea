@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Anonymous Articles Backend
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs18.x
+    Environment:
+      Variables:
+        ARTICLES_TABLE: !Ref ArticlesTable
+        CORS_ORIGIN: '*'
+
+Resources:
+  # DynamoDB Table for Articles
+  ArticlesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-articles"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: createdAt
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: CreatedAtIndex
+          KeySchema:
+            - AttributeName: createdAt
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+
+  # Lambda Functions
+  CreateArticleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articles.createArticle
+      Events:
+        CreateArticle:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles
+            Method: post
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ArticlesTable
+
+  GetRandomArticlesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articles.getRandomArticles
+      Events:
+        GetRandomArticles:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/random
+            Method: get
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref ArticlesTable
+
+  LikeArticleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articles.likeArticle
+      Events:
+        LikeArticle:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/like
+            Method: post
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ArticlesTable
+
+  ShareArticleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articles.shareArticle
+      Events:
+        ShareArticle:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/share
+            Method: post
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ArticlesTable
+
+  ViewArticleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: articles.viewArticle
+      Events:
+        ViewArticle:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/view
+            Method: post
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ArticlesTable
+
+  # API Gateway
+  ApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+
+Outputs:
+  ApiGatewayEndpoint:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Export:
+      Name: !Sub "${AWS::StackName}-ApiEndpoint"

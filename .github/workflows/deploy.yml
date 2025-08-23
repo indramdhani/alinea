@@ -1,0 +1,90 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Setup AWS SAM
+      uses: aws-actions/setup-sam@v2
+      
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+        
+    - name: Install backend dependencies
+      run: |
+        cd backend/src
+        npm install
+        
+    - name: Build and deploy SAM application
+      run: |
+        cd backend
+        sam build
+        sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name anonymous-articles-backend --capabilities CAPABILITY_IAM --region us-east-1
+        
+    - name: Get API Gateway URL
+      id: get-api-url
+      run: |
+        cd backend
+        API_URL=$(aws cloudformation describe-stacks --stack-name anonymous-articles-backend --query 'Stacks[0].Outputs[?OutputKey==`ApiGatewayEndpoint`].OutputValue' --output text --region us-east-1)
+        echo "api_url=$API_URL" >> $GITHUB_OUTPUT
+        
+    outputs:
+      api_url: ${{ steps.get-api-url.outputs.api_url }}
+
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    needs: deploy-backend
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm install
+        
+    - name: Build frontend
+      run: |
+        cd frontend
+        NEXT_PUBLIC_API_URL=${{ needs.deploy-backend.outputs.api_url }} npm run build
+        
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+        
+    - name: Deploy to Amplify
+      run: |
+        cd frontend
+        # This would typically use AWS Amplify CLI or direct S3 deployment
+        # For now, we'll use S3 + CloudFront as a simpler alternative
+        aws s3 sync out/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
