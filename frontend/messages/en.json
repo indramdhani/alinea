@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "title": "Anonymous Articles",
+    "browse": "Browse",
+    "disclaimer": "Disclaimer",
+    "reportAbuse": "Report Abuse",
+    "write": "Write Article"
+  },
+  "home": {
+    "title": "Discover Anonymous Stories",
+    "subtitle": "Read random articles, poems, and thoughts shared by anonymous writers from around the world",
+    "loadArticles": "Load New Articles",
+    "loading": "Loading...",
+    "noArticles": "No articles found. Be the first to share your story!",
+    "likes": "likes",
+    "views": "views",
+    "shares": "shares"
+  },
+  "write": {
+    "title": "Write Your Story",
+    "subtitle": "Share your thoughts, stories, poems, or notes anonymously with the world. No account required, just pure expression.",
+    "cardTitle": "Create New Article",
+    "cardDescription": "Your content will be published anonymously. Markdown formatting is supported.",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Enter your title...",
+    "contentLabel": "Content",
+    "contentPlaceholder": "Write your story here... You can use Markdown formatting for rich text.",
+    "tagsLabel": "Tags",
+    "tagsPlaceholder": "Add tags (press Enter to add)",
+    "cancel": "Cancel",
+    "publish": "Publish Article",
+    "publishing": "Publishing...",
+    "tipsTitle": "Writing Tips",
+    "tips": [
+      "Use **bold** and *italic* text for emphasis",
+      "Create headers with # for main titles, ## for subtitles",
+      "Add links with [text](url) format",
+      "Create lists with - or 1. for numbered lists",
+      "Use > for quotes and blockquotes"
+    ],
+    "charactersLeft": "characters",
+    "fillRequired": "Please fill in both title and content",
+    "publishSuccess": "Article published successfully!",
+    "publishError": "Failed to publish article. Please try again."
+  },
+  "disclaimer": {
+    "title": "Disclaimer & Terms",
+    "subtitle": "Important information about using this platform",
+    "anonymousPlatform": {
+      "title": "Anonymous Content Platform",
+      "description": "This platform allows users to share content anonymously without registration",
+      "content": "This website is designed as an anonymous content sharing platform where users can publish articles, stories, poems, and thoughts without creating accounts or providing personal information."
+    },
+    "contentResponsibility": {
+      "title": "Content Responsibility",
+      "userResponsibility": "User Responsibility: All content published on this platform is the sole responsibility of the person who submitted it. Users are responsible for ensuring their content complies with applicable laws and regulations.",
+      "noModeration": "No Content Moderation: Due to the anonymous nature of this platform, we do not pre-moderate content. However, we reserve the right to remove content that violates our terms or applicable laws."
+    },
+    "prohibitedContent": {
+      "title": "Prohibited Content",
+      "intro": "The following types of content are strictly prohibited:",
+      "items": [
+        "Illegal content or content that promotes illegal activities",
+        "Hate speech, harassment, or content targeting individuals or groups",
+        "Content that infringes on intellectual property rights",
+        "Spam, malicious links, or attempts to distribute malware",
+        "Personal information of others (doxxing)",
+        "Content that violates privacy rights",
+        "Explicit sexual content involving minors",
+        "Content that promotes violence or self-harm"
+      ]
+    },
+    "privacy": {
+      "title": "Privacy & Data Collection",
+      "noPersonalData": "No Personal Data: We do not collect personal information, email addresses, or require user registration. The platform is designed to be truly anonymous.",
+      "technicalData": "Technical Data: We may collect basic technical information such as IP addresses for security purposes and to prevent abuse, but this data is not linked to user identities.",
+      "contentStorage": "Content Storage: All submitted content is stored on our servers. While we don't track authorship, the content itself becomes part of our database."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "noWarranties": "No Warranties: This platform is provided \"as is\" without any warranties, express or implied. We do not guarantee the accuracy, completeness, or reliability of any content.",
+      "userContent": "User Content: We are not responsible for user-generated content and do not endorse any opinions, recommendations, or advice expressed by users.",
+      "serviceAvailability": "Service Availability: We do not guarantee continuous availability of the service and reserve the right to modify or discontinue the platform at any time."
+    },
+    "contentRemoval": {
+      "title": "Content Removal",
+      "reporting": "Reporting: If you encounter content that violates these terms, please report it through appropriate channels. Due to the anonymous nature of the platform, we cannot provide direct contact methods within the platform itself.",
+      "removalProcess": "Removal Process: We reserve the right to remove any content that violates these terms or applicable laws without prior notice."
+    },
+    "legalCompliance": {
+      "title": "Legal Compliance",
+      "jurisdiction": "Jurisdiction: This platform operates under applicable laws and regulations. Users are responsible for ensuring their content complies with laws in their jurisdiction.",
+      "lawEnforcement": "Law Enforcement: We will cooperate with law enforcement agencies when required by law, though our ability to provide user information is limited due to our anonymous design."
+    },
+    "footer": "By using this platform, you acknowledge that you have read, understood, and agree to be bound by these terms. These terms may be updated from time to time, and continued use of the platform constitutes acceptance of any changes.",
+    "lastUpdated": "Last updated"
+  },
+  "footer": {
+    "description": "Built for anonymous sharing. No accounts, no tracking, just pure expression."
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "indonesian": "Indonesian"
+  },
+  "reportAbuse": {
+    "title": "Report Abuse",
+    "subtitle": "Help us maintain a safe and respectful community",
+    "cardTitle": "Report Inappropriate Content",
+    "cardDescription": "Please provide details about the content you wish to report. All reports are reviewed by our team.",
+    "titleLabel": "Report Title",
+    "titlePlaceholder": "Brief description of the issue...",
+    "linkLabel": "Link to Content",
+    "linkPlaceholder": "URL of the article or content to report",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Please provide detailed information about why you are reporting this content...",
+    "submit": "Submit Report",
+    "submitting": "Submitting...",
+    "cancel": "Cancel",
+    "fillRequired": "Please fill in all required fields",
+    "submitSuccess": "Report submitted successfully. Thank you for helping us maintain a safe community.",
+    "submitError": "Failed to submit report. Please try again.",
+    "guidelines": {
+      "title": "Reporting Guidelines",
+      "items": [
+        "Only report content that violates our community guidelines",
+        "Provide specific details about the violation",
+        "Include the direct link to the problematic content",
+        "Reports are reviewed within 24-48 hours",
+        "False reports may result in restrictions"
+      ]
+    }
+  }
+}

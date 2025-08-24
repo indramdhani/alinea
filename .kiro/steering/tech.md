@@ -2,12 +2,13 @@
 
 ## Frontend
 - **Framework**: Next.js 14 with TypeScript
-- **Styling**: Tailwind CSS with custom design system
+- **Styling**: Tailwind CSS with monochrome design system
 - **UI Components**: Radix UI primitives with shadcn/ui components
 - **Icons**: Lucide React
 - **Markdown**: ReactMarkdown for content rendering
-- **Editor**: SimpleMDE/EasyMDE for writing interface
-- **HTTP Client**: Axios for API calls
+- **Editor**: @uiw/react-md-editor for writing interface
+- **HTTP Client**: Native fetch API
+- **Internationalization**: Custom i18n with locale-based routing (English/Indonesian)
 - **Hosting**: AWS Amplify
 
 ## Backend
@@ -16,7 +17,7 @@
 - **Functions**: AWS Lambda
 - **Database**: DynamoDB with pay-per-request billing
 - **API**: API Gateway with CORS enabled
-- **Dependencies**: AWS SDK v2, UUID for ID generation
+- **Dependencies**: AWS SDK v3, UUID for ID generation
 
 ## Infrastructure
 - **Cloud Provider**: AWS

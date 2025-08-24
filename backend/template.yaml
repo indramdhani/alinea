@@ -2,14 +2,29 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Anonymous Articles Backend
 
+Parameters: 
+  BillingTag: 
+    Type: String
+    Default: alinea
+    Description: a parameter that define billing tag sued on project
+  LogRetentionInDays:
+    Type: Number
+    Default: 7
+    Description: a log retention days
+
 Globals:
   Function:
     Timeout: 30
-    Runtime: nodejs18.x
+    MemorySize: 128
+    Runtime: nodejs22.x
+    Architectures:
+      - arm64
     Environment:
       Variables:
         ARTICLES_TABLE: !Ref ArticlesTable
         CORS_ORIGIN: '*'
+    Tags:
+      billing: !Ref BillingTag
 
 Resources:
   # DynamoDB Table for Articles
@@ -33,13 +48,16 @@ Resources:
               KeyType: HASH
           Projection:
             ProjectionType: ALL
+      Tags:
+        - Key: 'billing'
+          Value: !Ref 'BillingTag'
 
   # Lambda Functions
-  CreateArticleFunction:
+  ArticlesFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: src/
-      Handler: articles.createArticle
+      Handler: articles.handler
       Events:
         CreateArticle:
           Type: Api
@@ -47,73 +65,86 @@ Resources:
             RestApiId: !Ref ApiGateway
             Path: /articles
             Method: post
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref ArticlesTable
-
-  GetRandomArticlesFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Handler: articles.getRandomArticles
-      Events:
         GetRandomArticles:
           Type: Api
           Properties:
             RestApiId: !Ref ApiGateway
             Path: /articles/random
-            Method: get
-      Policies:
-        - DynamoDBReadPolicy:
-            TableName: !Ref ArticlesTable
-
-  LikeArticleFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Handler: articles.likeArticle
-      Events:
+            Method: get            
         LikeArticle:
           Type: Api
           Properties:
             RestApiId: !Ref ApiGateway
             Path: /articles/{id}/like
-            Method: post
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref ArticlesTable
-
-  ShareArticleFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Handler: articles.shareArticle
-      Events:
+            Method: post            
         ShareArticle:
           Type: Api
           Properties:
             RestApiId: !Ref ApiGateway
             Path: /articles/{id}/share
-            Method: post
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref ArticlesTable
-
-  ViewArticleFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Handler: articles.viewArticle
-      Events:
+            Method: post       
         ViewArticle:
           Type: Api
           Properties:
             RestApiId: !Ref ApiGateway
             Path: /articles/{id}/view
             Method: post
+        # CORS OPTIONS handlers
+        OptionsArticles:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles
+            Method: options
+        OptionsArticlesRandom:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/random
+            Method: options
+        OptionsArticlesLike:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/like
+            Method: options
+        OptionsArticlesShare:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/share
+            Method: options
+        OptionsArticlesView:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /articles/{id}/view
+            Method: options
+        # Report Abuse endpoint
+        ReportAbuse:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /report-abuse
+            Method: post
+        OptionsReportAbuse:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGateway
+            Path: /report-abuse
+            Method: options
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ArticlesTable
+  # CloudWatch Log Group for the Articles Function
+  ArticlesLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${ArticlesFunction}
+      RetentionInDays: !Ref LogRetentionInDays
+      Tags:
+        - Key: 'billing'
+          Value: !Ref 'BillingTag'
 
   # API Gateway
   ApiGateway:

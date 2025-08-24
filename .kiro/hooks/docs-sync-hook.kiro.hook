@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "name": "Documentation Sync",
+  "description": "Monitors all source files in the repository and triggers documentation updates in README.md when changes occur",
+  "version": "1",
+  "when": {
+    "type": "userTriggered",
+    "patterns": [
+      "frontend/app/**/*.tsx",
+      "frontend/components/**/*.tsx",
+      "frontend/lib/**/*.ts",
+      "backend/src/**/*.js",
+      "frontend/package.json",
+      "backend/package.json",
+      "backend/template.yaml",
+      "frontend/next.config.js",
+      "frontend/tailwind.config.js",
+      "frontend/tsconfig.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Source code files have been modified in this Next.js/AWS SAM project. Please review the changes and update the README.md file to reflect any new features, API changes, component updates, or architectural modifications. Focus on keeping the documentation accurate and helpful for developers working with this anonymous article sharing platform. Update installation instructions, usage examples, and any technical details that may have changed."
+  }
+}

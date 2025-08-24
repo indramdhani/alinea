@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "title": "Artikel Anonim",
+    "browse": "Jelajahi",
+    "disclaimer": "Disclaimer",
+    "reportAbuse": "Laporkan Penyalahgunaan",
+    "write": "Tulis Artikel"
+  },
+  "home": {
+    "title": "Temukan Cerita Anonim",
+    "subtitle": "Baca artikel acak, puisi, dan pemikiran yang dibagikan oleh penulis anonim dari seluruh dunia",
+    "loadArticles": "Muat Artikel Baru",
+    "loading": "Memuat...",
+    "noArticles": "Tidak ada artikel ditemukan. Jadilah yang pertama berbagi cerita Anda!",
+    "likes": "suka",
+    "views": "dilihat",
+    "shares": "dibagikan"
+  },
+  "write": {
+    "title": "Tulis Cerita Anda",
+    "subtitle": "Bagikan pemikiran, cerita, puisi, atau catatan Anda secara anonim dengan dunia. Tidak perlu akun, hanya ekspresi murni.",
+    "cardTitle": "Buat Artikel Baru",
+    "cardDescription": "Konten Anda akan dipublikasikan secara anonim. Format Markdown didukung.",
+    "titleLabel": "Judul",
+    "titlePlaceholder": "Masukkan judul Anda...",
+    "contentLabel": "Konten",
+    "contentPlaceholder": "Tulis cerita Anda di sini... Anda dapat menggunakan format Markdown untuk teks yang kaya.",
+    "tagsLabel": "Tag",
+    "tagsPlaceholder": "Tambahkan tag (tekan Enter untuk menambah)",
+    "cancel": "Batal",
+    "publish": "Publikasikan Artikel",
+    "publishing": "Mempublikasikan...",
+    "tipsTitle": "Tips Menulis",
+    "tips": [
+      "Gunakan **tebal** dan *miring* untuk penekanan",
+      "Buat header dengan # untuk judul utama, ## untuk subjudul",
+      "Tambahkan tautan dengan format [teks](url)",
+      "Buat daftar dengan - atau 1. untuk daftar bernomor",
+      "Gunakan > untuk kutipan dan blockquote"
+    ],
+    "charactersLeft": "karakter",
+    "fillRequired": "Harap isi judul dan konten",
+    "publishSuccess": "Artikel berhasil dipublikasikan!",
+    "publishError": "Gagal mempublikasikan artikel. Silakan coba lagi."
+  },
+  "disclaimer": {
+    "title": "Disclaimer & Ketentuan",
+    "subtitle": "Informasi penting tentang penggunaan platform ini",
+    "anonymousPlatform": {
+      "title": "Platform Konten Anonim",
+      "description": "Platform ini memungkinkan pengguna berbagi konten secara anonim tanpa registrasi",
+      "content": "Website ini dirancang sebagai platform berbagi konten anonim di mana pengguna dapat mempublikasikan artikel, cerita, puisi, dan pemikiran tanpa membuat akun atau memberikan informasi pribadi."
+    },
+    "contentResponsibility": {
+      "title": "Tanggung Jawab Konten",
+      "userResponsibility": "Tanggung Jawab Pengguna: Semua konten yang dipublikasikan di platform ini adalah tanggung jawab penuh dari orang yang mengirimkannya. Pengguna bertanggung jawab memastikan konten mereka mematuhi hukum dan peraturan yang berlaku.",
+      "noModeration": "Tanpa Moderasi Konten: Karena sifat anonim platform ini, kami tidak melakukan moderasi konten sebelumnya. Namun, kami berhak menghapus konten yang melanggar ketentuan kami atau hukum yang berlaku."
+    },
+    "prohibitedContent": {
+      "title": "Konten yang Dilarang",
+      "intro": "Jenis konten berikut ini sangat dilarang:",
+      "items": [
+        "Konten ilegal atau konten yang mempromosikan aktivitas ilegal",
+        "Ujaran kebencian, pelecehan, atau konten yang menargetkan individu atau kelompok",
+        "Konten yang melanggar hak kekayaan intelektual",
+        "Spam, tautan berbahaya, atau upaya mendistribusikan malware",
+        "Informasi pribadi orang lain (doxxing)",
+        "Konten yang melanggar hak privasi",
+        "Konten seksual eksplisit yang melibatkan anak di bawah umur",
+        "Konten yang mempromosikan kekerasan atau menyakiti diri sendiri"
+      ]
+    },
+    "privacy": {
+      "title": "Privasi & Pengumpulan Data",
+      "noPersonalData": "Tanpa Data Pribadi: Kami tidak mengumpulkan informasi pribadi, alamat email, atau memerlukan registrasi pengguna. Platform ini dirancang untuk benar-benar anonim.",
+      "technicalData": "Data Teknis: Kami mungkin mengumpulkan informasi teknis dasar seperti alamat IP untuk tujuan keamanan dan mencegah penyalahgunaan, tetapi data ini tidak dikaitkan dengan identitas pengguna.",
+      "contentStorage": "Penyimpanan Konten: Semua konten yang dikirimkan disimpan di server kami. Meskipun kami tidak melacak kepengarangan, konten itu sendiri menjadi bagian dari database kami."
+    },
+    "liability": {
+      "title": "Batasan Tanggung Jawab",
+      "noWarranties": "Tanpa Jaminan: Platform ini disediakan \"apa adanya\" tanpa jaminan apa pun, tersurat maupun tersirat. Kami tidak menjamin keakuratan, kelengkapan, atau keandalan konten apa pun.",
+      "userContent": "Konten Pengguna: Kami tidak bertanggung jawab atas konten yang dibuat pengguna dan tidak mendukung pendapat, rekomendasi, atau saran yang dinyatakan oleh pengguna.",
+      "serviceAvailability": "Ketersediaan Layanan: Kami tidak menjamin ketersediaan layanan yang berkelanjutan dan berhak memodifikasi atau menghentikan platform kapan saja."
+    },
+    "contentRemoval": {
+      "title": "Penghapusan Konten",
+      "reporting": "Pelaporan: Jika Anda menemukan konten yang melanggar ketentuan ini, silakan laporkan melalui saluran yang sesuai. Karena sifat anonim platform ini, kami tidak dapat menyediakan metode kontak langsung dalam platform itu sendiri.",
+      "removalProcess": "Proses Penghapusan: Kami berhak menghapus konten apa pun yang melanggar ketentuan ini atau hukum yang berlaku tanpa pemberitahuan sebelumnya."
+    },
+    "legalCompliance": {
+      "title": "Kepatuhan Hukum",
+      "jurisdiction": "Yurisdiksi: Platform ini beroperasi di bawah hukum dan peraturan yang berlaku. Pengguna bertanggung jawab memastikan konten mereka mematuhi hukum di yurisdiksi mereka.",
+      "lawEnforcement": "Penegakan Hukum: Kami akan bekerja sama dengan lembaga penegak hukum ketika diwajibkan oleh hukum, meskipun kemampuan kami untuk memberikan informasi pengguna terbatas karena desain anonim kami."
+    },
+    "footer": "Dengan menggunakan platform ini, Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh ketentuan ini. Ketentuan ini dapat diperbarui dari waktu ke waktu, dan penggunaan platform yang berkelanjutan merupakan penerimaan atas perubahan apa pun.",
+    "lastUpdated": "Terakhir diperbarui"
+  },
+  "footer": {
+    "description": "Dibangun untuk berbagi anonim. Tanpa akun, tanpa pelacakan, hanya ekspresi murni."
+  },
+  "language": {
+    "switch": "Ganti Bahasa",
+    "english": "Inggris",
+    "indonesian": "Indonesia"
+  },
+  "reportAbuse": {
+    "title": "Laporkan Penyalahgunaan",
+    "subtitle": "Bantu kami menjaga komunitas yang aman dan saling menghormati",
+    "cardTitle": "Laporkan Konten Tidak Pantas",
+    "cardDescription": "Harap berikan detail tentang konten yang ingin Anda laporkan. Semua laporan akan ditinjau oleh tim kami.",
+    "titleLabel": "Judul Laporan",
+    "titlePlaceholder": "Deskripsi singkat tentang masalah...",
+    "linkLabel": "Tautan ke Konten",
+    "linkPlaceholder": "URL artikel atau konten yang dilaporkan",
+    "descriptionLabel": "Deskripsi",
+    "descriptionPlaceholder": "Harap berikan informasi detail tentang mengapa Anda melaporkan konten ini...",
+    "submit": "Kirim Laporan",
+    "submitting": "Mengirim...",
+    "cancel": "Batal",
+    "fillRequired": "Harap isi semua kolom yang diperlukan",
+    "submitSuccess": "Laporan berhasil dikirim. Terima kasih telah membantu kami menjaga komunitas yang aman.",
+    "submitError": "Gagal mengirim laporan. Silakan coba lagi.",
+    "guidelines": {
+      "title": "Panduan Pelaporan",
+      "items": [
+        "Hanya laporkan konten yang melanggar pedoman komunitas kami",
+        "Berikan detail spesifik tentang pelanggaran",
+        "Sertakan tautan langsung ke konten yang bermasalah",
+        "Laporan ditinjau dalam 24-48 jam",
+        "Laporan palsu dapat mengakibatkan pembatasan"
+      ]
+    }
+  }
+}

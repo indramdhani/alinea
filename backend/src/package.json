@@ -4,7 +4,8 @@
   "description": "Backend for anonymous articles platform",
   "main": "articles.js",
   "dependencies": {
-    "aws-sdk": "^2.1490.0",
+    "@aws-sdk/client-dynamodb": "^3.490.0",
+    "@aws-sdk/lib-dynamodb": "^3.490.0",
     "uuid": "^9.0.1"
   }
 }

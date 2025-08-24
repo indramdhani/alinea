@@ -1,0 +1,132 @@
+/* MD Editor Text Visibility Fix - AGGRESSIVE APPROACH */
+
+/* Light theme colors */
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor *:not(svg):not(path),
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor textarea,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor input,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor pre,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor code,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor span,
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor div {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+/* Dark theme colors */
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor *:not(svg):not(path),
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor textarea,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor input,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor pre,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor code,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor span,
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor div {
+  color: #ffffff !important;
+  background-color: #171717 !important;
+}
+
+/* Main editor container */
+.w-md-editor {
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+/* Text input areas - specific targeting */
+.w-md-editor-text-container,
+.w-md-editor-text,
+.w-md-editor-text-input,
+.w-md-editor-text-pre,
+.w-md-editor-text-textarea {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Textarea element - most important */
+.w-md-editor textarea {
+  color: inherit !important;
+  background-color: transparent !important;
+  caret-color: inherit !important;
+}
+
+/* Light theme specific textarea */
+.w-md-editor-wrapper[data-color-mode="light"] .w-md-editor textarea {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+
+/* Dark theme specific textarea */
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor textarea {
+  color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
+
+/* Placeholder text */
+.w-md-editor textarea::placeholder {
+  color: #666666 !important;
+  opacity: 0.7;
+}
+
+.w-md-editor-wrapper[data-color-mode="dark"] .w-md-editor textarea::placeholder {
+  color: #999999 !important;
+}
+
+/* Toolbar */
+.w-md-editor-bar {
+  background-color: hsl(var(--muted)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+.w-md-editor-bar svg {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.w-md-editor-bar button:hover {
+  background-color: hsl(var(--accent)) !important;
+}
+
+/* Preview area */
+.w-md-editor-preview {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* CodeMirror specific */
+.w-md-editor .CodeMirror {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+.w-md-editor .CodeMirror-line {
+  color: inherit !important;
+}
+
+.w-md-editor .CodeMirror-cursor {
+  border-left: 1px solid currentColor !important;
+}
+
+/* Force visibility on all possible text elements */
+.w-md-editor span:not([class*="icon"]):not([class*="svg"]),
+.w-md-editor div:not([class*="toolbar"]):not([class*="bar"]),
+.w-md-editor p,
+.w-md-editor pre,
+.w-md-editor code {
+  color: inherit !important;
+}
+
+/* Ultimate nuclear option - target everything */
+.w-md-editor-wrapper * {
+  color: inherit !important;
+}
+
+/* Ensure text is visible during typing */
+.w-md-editor-text-input,
+.w-md-editor-text-pre {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* Token highlighting should inherit color */
+.w-md-editor-text-input .token,
+.w-md-editor-text-pre .token {
+  color: inherit !important;
+}

@@ -4,48 +4,50 @@
 
 @layer base {
   :root {
+    /* Monochrome Light Theme */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 0% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 9%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    /* Monochrome Dark Theme */
+    --background: 0 0% 9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 0% 65%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
   }
 }
 
@@ -58,20 +60,220 @@
   }
 }
 
-.easymde-container .editor-toolbar {
-  border-top: 1px solid hsl(var(--border));
-  border-left: 1px solid hsl(var(--border));
-  border-right: 1px solid hsl(var(--border));
-  background: hsl(var(--background));
+/* MD Editor Comprehensive Fixes */
+.w-md-editor {
+  background-color: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
 }
 
-.easymde-container .CodeMirror {
-  border: 1px solid hsl(var(--border));
-  border-top: none;
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
+/* Main editor container */
+.w-md-editor-text-container {
+  background-color: hsl(var(--background)) !important;
 }
 
-.easymde-container .CodeMirror-focused {
-  border-color: hsl(var(--ring));
+/* All text elements */
+.w-md-editor-text-pre, 
+.w-md-editor-text-input, 
+.w-md-editor-text,
+.w-md-editor-text-textarea,
+.w-md-editor textarea {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  caret-color: hsl(var(--foreground)) !important;
+}
+
+/* Textarea specific fixes */
+.w-md-editor-text-textarea textarea {
+  color: hsl(var(--foreground)) !important;
+  background-color: transparent !important;
+}
+
+/* Input area */
+.w-md-editor-text-input {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Pre element for syntax highlighting */
+.w-md-editor-text-pre {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Tokens and syntax highlighting */
+.w-md-editor-text-input .token,
+.w-md-editor-text-pre .token {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Toolbar */
+.w-md-editor-bar {
+  border-color: hsl(var(--border)) !important;
+  background-color: hsl(var(--muted)) !important;
+}
+
+.w-md-editor-bar svg {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.w-md-editor-bar button:hover {
+  background-color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+/* CodeMirror specific fixes */
+.w-md-editor .CodeMirror {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+.w-md-editor .CodeMirror-line {
+  color: hsl(var(--foreground)) !important;
+}
+
+.w-md-editor .CodeMirror-cursor {
+  border-left: 1px solid hsl(var(--foreground)) !important;
+}
+
+/* Force all nested elements to inherit color */
+.w-md-editor *:not(svg):not(path) {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Specific targeting for text areas and inputs */
+.w-md-editor input,
+.w-md-editor textarea {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Preview area */
+.w-md-editor-preview {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Dark theme specific overrides */
+.dark .w-md-editor {
+  color-scheme: dark !important;
+}
+
+.dark .w-md-editor *:not(svg):not(path) {
+  color: hsl(var(--foreground)) !important;
+}
+
+.dark .w-md-editor-text-pre,
+.dark .w-md-editor-text-input,
+.dark .w-md-editor-text,
+.dark .w-md-editor-text-textarea,
+.dark .w-md-editor textarea,
+.dark .w-md-editor input {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Light theme specific overrides */
+.w-md-editor[data-color-mode="light"] *:not(svg):not(path) {
+  color: hsl(var(--foreground)) !important;
+}
+
+.w-md-editor[data-color-mode="light"] .w-md-editor-text-pre,
+.w-md-editor[data-color-mode="light"] .w-md-editor-text-input,
+.w-md-editor[data-color-mode="light"] .w-md-editor-text,
+.w-md-editor[data-color-mode="light"] .w-md-editor-text-textarea,
+.w-md-editor[data-color-mode="light"] textarea,
+.w-md-editor[data-color-mode="light"] input {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Dark theme data attribute overrides */
+.w-md-editor[data-color-mode="dark"] *:not(svg):not(path) {
+  color: hsl(var(--foreground)) !important;
+}
+
+.w-md-editor[data-color-mode="dark"] .w-md-editor-text-pre,
+.w-md-editor[data-color-mode="dark"] .w-md-editor-text-input,
+.w-md-editor[data-color-mode="dark"] .w-md-editor-text,
+.w-md-editor[data-color-mode="dark"] .w-md-editor-text-textarea,
+.w-md-editor[data-color-mode="dark"] textarea,
+.w-md-editor[data-color-mode="dark"] input {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Wrapper styling */
+.w-md-editor-wrapper {
+  color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--background)) !important;
+}
+
+.w-md-editor-wrapper * {
+  color: inherit !important;
+}
+
+/* Additional fallback styles */
+[data-color-mode="light"] .w-md-editor * {
+  color: hsl(var(--foreground)) !important;
+}
+
+[data-color-mode="dark"] .w-md-editor * {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Ultimate fallback - target all possible text elements */
+.w-md-editor span,
+.w-md-editor div,
+.w-md-editor p,
+.w-md-editor pre,
+.w-md-editor code {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Ensure placeholder text is visible */
+.w-md-editor textarea::placeholder {
+  color: hsl(var(--muted-foreground)) !important;
+  opacity: 0.7;
+}
+
+/* Monochrome Prose Styles */
+.prose {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--muted-foreground));
+  --tw-prose-links: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--border));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-pre-code: hsl(var(--muted-foreground));
+  --tw-prose-pre-bg: hsl(var(--muted));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+}
+
+.dark .prose {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--muted-foreground));
+  --tw-prose-links: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--border));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-pre-code: hsl(var(--muted-foreground));
+  --tw-prose-pre-bg: hsl(var(--muted));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
 }

@@ -1,7 +1,8 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+import { redirect } from 'next/navigation'
 
-export default function DisclaimerPage() {
+export default function DisclaimerRootPage() {
+  redirect('/en/disclaimer')
+}
   return (
     <div className="container max-w-4xl py-8">
       <div className="mb-8 text-center">
