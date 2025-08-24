@@ -10,19 +10,21 @@ A privacy-first platform where users can anonymously write and share articles, s
 - **Social Engagement**: Like, view, and share articles with real-time metrics
 - **Tag System**: Organize content with customizable tags (up to 10 per article)
 - **No Authentication**: Completely anonymous - no accounts, tracking, or personal data collection
+- **Report Abuse System**: Built-in content reporting mechanism for community safety
 
 ### User Experience
-- **Internationalization**: Full support for English and Indonesian languages
+- **Internationalization**: Full support for English and Indonesian languages with locale-based routing
 - **Responsive Design**: Mobile-first design with Tailwind CSS
 - **Monochrome Theme**: Clean, distraction-free interface with light/dark mode support
 - **Accessibility**: Built with Radix UI primitives for screen reader compatibility
 - **Progressive Enhancement**: Works without JavaScript for basic functionality
+- **Native Sharing**: Web Share API integration with clipboard fallback
 
 ### Content Management
 - **Markdown Support**: Full Markdown rendering with ReactMarkdown
 - **Character Limits**: 200 character title limit with real-time counter
 - **Content Validation**: Client and server-side validation
-- **Legal Framework**: Comprehensive disclaimer and terms of service
+- **Legal Framework**: Comprehensive disclaimer and terms of service in multiple languages
 
 ## 🏗️ Architecture
 
@@ -31,11 +33,13 @@ A privacy-first platform where users can anonymously write and share articles, s
 - **Styling**: Tailwind CSS with custom monochrome design system
 - **UI Components**: Radix UI primitives with shadcn/ui component library
 - **Icons**: Lucide React for consistent iconography
-- **Internationalization**: Custom i18n implementation with locale-based routing
+- **Markdown**: ReactMarkdown for content rendering, @uiw/react-md-editor for writing
+- **Internationalization**: Custom i18n implementation with locale-based routing (English/Indonesian)
+- **Theme**: Custom theme provider with system/light/dark mode support
 - **Deployment**: Static export optimized for AWS Amplify
 
 ### Backend Stack
-- **Runtime**: Node.js 18.x on AWS Lambda
+- **Runtime**: Node.js 22.x on AWS Lambda (ARM64 architecture)
 - **Framework**: AWS SAM (Serverless Application Model)
 - **Database**: DynamoDB with pay-per-request billing and GSI for time-based queries
 - **API**: REST API via API Gateway with full CORS support
