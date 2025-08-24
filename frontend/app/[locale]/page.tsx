@@ -141,7 +141,12 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
               <Card key={article.id} className="overflow-hidden">
                 <CardHeader>
                   <CardTitle className="text-2xl leading-tight">
-                    {article.title}
+                    <a 
+                      href={`/${locale}/article/${article.id}`}
+                      className="hover:text-primary transition-colors cursor-pointer"
+                    >
+                      {article.title}
+                    </a>
                   </CardTitle>
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-muted-foreground">
@@ -169,7 +174,21 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                 </CardHeader>
                 <CardContent>
                   <div className="prose max-w-none">
-                    <ReactMarkdown>{article.content}</ReactMarkdown>
+                    <ReactMarkdown>
+                      {article.content.length > 300 
+                        ? article.content.substring(0, 300) + '...' 
+                        : article.content
+                      }
+                    </ReactMarkdown>
+                    {article.content.length > 300 && (
+                      <div className="mt-4">
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={`/${locale}/article/${article.id}`}>
+                            {messages.home.readMore || 'Read More'}
+                          </a>
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
                 <Separator />

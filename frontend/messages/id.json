@@ -14,7 +14,8 @@
     "noArticles": "Tidak ada artikel ditemukan. Jadilah yang pertama berbagi cerita Anda!",
     "likes": "suka",
     "views": "dilihat",
-    "shares": "dibagikan"
+    "shares": "dibagikan",
+    "readMore": "Baca Selengkapnya"
   },
   "write": {
     "title": "Tulis Cerita Anda",
@@ -130,5 +131,11 @@
         "Laporan palsu dapat mengakibatkan pembatasan"
       ]
     }
+  },
+  "article": {
+    "notFound": "Artikel tidak ditemukan",
+    "backToHome": "Kembali ke Beranda",
+    "backToArticles": "Kembali ke Artikel",
+    "shareArticle": "Bagikan artikel ini"
   }
 }

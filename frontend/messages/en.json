@@ -14,7 +14,8 @@
     "noArticles": "No articles found. Be the first to share your story!",
     "likes": "likes",
     "views": "views",
-    "shares": "shares"
+    "shares": "shares",
+    "readMore": "Read More"
   },
   "write": {
     "title": "Write Your Story",
@@ -130,5 +131,11 @@
         "False reports may result in restrictions"
       ]
     }
+  },
+  "article": {
+    "notFound": "Article not found",
+    "backToHome": "Back to Home",
+    "backToArticles": "Back to Articles",
+    "shareArticle": "Share this article"
   }
 }
